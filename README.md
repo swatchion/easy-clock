@@ -28,6 +28,15 @@ make prefs-sandbox # Preview Preferences UI in an isolated memory backend
 make nested        # Launch an isolated nested Wayland GNOME Shell session
 ```
 
+## Release
+
+Push a `v*` tag to trigger GitHub Actions CI to test, package, and publish the `.shell-extension.zip` to [GitHub Releases](https://github.com/swatchion/easy-clock/releases):
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
 ## License
 
 [MIT](LICENSE)

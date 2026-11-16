@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="easy-clock">
+  <schema id="org.gnome.shell.extensions.easy-clock"
+          path="/org/gnome/shell/extensions/easy-clock/">
+    <key name="timezone" type="s">
+      <default>'UTC'</default>
+      <summary>Target timezone identifier</summary>
+      <description>
+        IANA timezone identifier (e.g. UTC, Europe/London, Asia/Tokyo) or
+        fixed UTC offset (e.g. +08:00, -05:00) used by the independent clock.
+      </description>
+    </key>
+
+    <key name="format" type="s">
+      <default>'%Z %H:%M'</default>
+      <summary>strftime format string</summary>
+      <description>
+        Format string passed to GLib.DateTime.format() (strftime syntax),
+        such as %H:%M, %Z %H:%M, or %m-%d %H:%M:%S.
+      </description>
+    </key>
+
+    <key name="label-prefix" type="s">
+      <default>''</default>
+      <summary>Optional text prefix</summary>
+      <description>
+        Optional custom text prepended before the formatted clock output.
+      </description>
+    </key>
+
+    <key name="panel-position" type="s">
+      <choices>
+        <choice value="left"/>
+        <choice value="center"/>
+        <choice value="right"/>
+      </choices>
+      <default>'center'</default>
+      <summary>Top bar box position</summary>
+      <description>
+        Which section of the GNOME Shell top bar hosts the clock: left, center, or right.
+      </description>
+    </key>
+
+    <key name="panel-index" type="i">
+      <range min="0" max="20"/>
+      <default>1</default>
+      <summary>Position index within the selected top bar box</summary>
+      <description>
+        Index within the selected panel box (e.g. 0 places it at the start, 1 places it right after the first item).
+      </description>
+    </key>
+  </schema>
+</schemalist>

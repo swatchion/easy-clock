@@ -1,0 +1,14 @@
+{
+  "uuid": "easy-clock@swatchion.github.io",
+  "name": "Easy Clock",
+  "description": "Display an independent clock with a customizable timezone and strftime format in the top bar.",
+  "shell-version": [
+    "45",
+    "46",
+    "47"
+  ],
+  "url": "https://github.com/swatchion/easy-clock",
+  "settings-schema": "org.gnome.shell.extensions.easy-clock",
+  "gettext-domain": "easy-clock",
+  "version-name": "1.0.0"
+}

@@ -1,0 +1,7 @@
+dist/
+.sandbox/
+.headless-test.*/
+src/schemas/gschemas.compiled
+*.mo
+*~
+.DS_Store

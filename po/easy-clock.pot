@@ -1,0 +1,129 @@
+# Easy Clock translation template.
+# SPDX-License-Identifier: MIT
+msgid ""
+msgstr ""
+"Project-Id-Version: easy-clock 1.0.0\n"
+"POT-Creation-Date: 2026-11-16 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Easy Clock"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Timezone + 24-hour (%Z %H:%M)"
+msgstr ""
+
+msgid "24-hour (%H:%M)"
+msgstr ""
+
+msgid "24-hour with seconds (%H:%M:%S)"
+msgstr ""
+
+msgid "Month-Day + Time (%m-%d %H:%M)"
+msgstr ""
+
+msgid "Weekday + Time (%a %H:%M)"
+msgstr ""
+
+msgid "12-hour (%I:%M %p)"
+msgstr ""
+
+msgid "ISO Date & Time (%F %T %Z)"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Center"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Hour (24-hour 00-23 / 12-hour 01-12)"
+msgstr ""
+
+msgid "Minute (00-59) / Second (00-59)"
+msgstr ""
+
+msgid "AM / PM indicator"
+msgstr ""
+
+msgid "Timezone abbreviation (e.g. UTC) / numeric offset (e.g. +0000)"
+msgstr ""
+
+msgid "Year-Month-Day (e.g. 2026-11-16)"
+msgstr ""
+
+msgid "Abbreviated / full weekday name"
+msgstr ""
+
+msgid "Clock Settings"
+msgstr ""
+
+msgid "Live Preview"
+msgstr ""
+
+msgid "System timezone"
+msgstr ""
+
+msgid "Top Bar Output"
+msgstr ""
+
+msgid "Timezone"
+msgstr ""
+
+msgid "Select an IANA timezone or enter an identifier / UTC offset (e.g. UTC, Europe/London, Asia/Tokyo, +08:00)"
+msgstr ""
+
+msgid "IANA Timezone"
+msgstr ""
+
+msgid "Open and type to filter timezones"
+msgstr ""
+
+msgid "Timezone Identifier / Offset"
+msgstr ""
+
+msgid "Display Format (strftime)"
+msgstr ""
+
+msgid "Customize output using GLib.DateTime.format() strftime specifiers"
+msgstr ""
+
+msgid "Format Presets"
+msgstr ""
+
+msgid "strftime Format String"
+msgstr ""
+
+msgid "Custom Label Prefix (Optional)"
+msgstr ""
+
+msgid "Common strftime Specifiers"
+msgstr ""
+
+msgid "Expand to view format codes"
+msgstr ""
+
+msgid "Top Bar Position"
+msgstr ""
+
+msgid "Choose where the independent clock appears in the top bar"
+msgstr ""
+
+msgid "Panel Box"
+msgstr ""
+
+msgid "Position Index"
+msgstr ""
+
+msgid "0 places the clock first; 1 in Center places it next to the system clock"
+msgstr ""
+
+msgid "Matches current system timezone"
+msgstr ""

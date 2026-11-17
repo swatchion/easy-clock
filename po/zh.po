@@ -1,0 +1,131 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: easy-clock 1.0.0\n"
+"POT-Creation-Date: 2026-11-16 00:00+0000\n"
+"PO-Revision-Date: 2026-11-16 00:00+0000\n"
+"Last-Translator: Nick Zeng <nick.zeng@wpic.co>\n"
+"Language-Team: Chinese\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Easy Clock"
+msgstr "简易时钟"
+
+msgid "Custom"
+msgstr "自定义"
+
+msgid "Timezone + 24-hour (%Z %H:%M)"
+msgstr "时区缩写 + 24小时制 (%Z %H:%M)"
+
+msgid "24-hour (%H:%M)"
+msgstr "24小时制 (%H:%M)"
+
+msgid "24-hour with seconds (%H:%M:%S)"
+msgstr "24小时制含秒 (%H:%M:%S)"
+
+msgid "Month-Day + Time (%m-%d %H:%M)"
+msgstr "月-日 + 时间 (%m-%d %H:%M)"
+
+msgid "Weekday + Time (%a %H:%M)"
+msgstr "星期 + 时间 (%a %H:%M)"
+
+msgid "12-hour (%I:%M %p)"
+msgstr "12小时制 (%I:%M %p)"
+
+msgid "ISO Date & Time (%F %T %Z)"
+msgstr "完整 ISO 日期时间 (%F %T %Z)"
+
+msgid "Left"
+msgstr "左侧区域"
+
+msgid "Center"
+msgstr "居中区域"
+
+msgid "Right"
+msgstr "右侧状态栏"
+
+msgid "Hour (24-hour 00-23 / 12-hour 01-12)"
+msgstr "小时（24小时制 00-23 / 12小时制 01-12）"
+
+msgid "Minute (00-59) / Second (00-59)"
+msgstr "分钟（00-59）/ 秒（00-59）"
+
+msgid "AM / PM indicator"
+msgstr "AM / PM 标记"
+
+msgid "Timezone abbreviation (e.g. UTC) / numeric offset (e.g. +0000)"
+msgstr "时区缩写（如 UTC）/ 数字偏移（如 +0000）"
+
+msgid "Year-Month-Day (e.g. 2026-11-16)"
+msgstr "年-月-日（如 2026-11-16）"
+
+msgid "Abbreviated / full weekday name"
+msgstr "星期简称 / 全称"
+
+msgid "Clock Settings"
+msgstr "时钟设置"
+
+msgid "Live Preview"
+msgstr "实时预览"
+
+msgid "System timezone"
+msgstr "当前系统时区"
+
+msgid "Top Bar Output"
+msgstr "顶栏显示效果"
+
+msgid "Timezone"
+msgstr "独立时区"
+
+msgid "Select an IANA timezone or enter an identifier / UTC offset (e.g. UTC, Europe/London, Asia/Tokyo, +08:00)"
+msgstr "搜索选择 IANA 时区，或直接输入标识符 / UTC 偏移（如 UTC、Europe/London、Asia/Tokyo、+08:00）"
+
+msgid "IANA Timezone"
+msgstr "IANA 时区列表"
+
+msgid "Open and type to filter timezones"
+msgstr "点击展开并输入关键字过滤时区"
+
+msgid "Timezone Identifier / Offset"
+msgstr "时区标识符 / 偏移量"
+
+msgid "Display Format (strftime)"
+msgstr "显示格式 (strftime)"
+
+msgid "Customize output using GLib.DateTime.format() strftime specifiers"
+msgstr "使用 GLib.DateTime.format() 标准 strftime 格式字符串自定义显示"
+
+msgid "Format Presets"
+msgstr "常用格式预设"
+
+msgid "strftime Format String"
+msgstr "strftime 格式字符串"
+
+msgid "Custom Label Prefix (Optional)"
+msgstr "自定义前缀文本（可选）"
+
+msgid "Common strftime Specifiers"
+msgstr "常用 strftime 占位符参考"
+
+msgid "Expand to view format codes"
+msgstr "展开查看常用时间与日期格式代码"
+
+msgid "Top Bar Position"
+msgstr "顶栏位置"
+
+msgid "Choose where the independent clock appears in the top bar"
+msgstr "选择独立时钟在顶栏中的放置区域与顺序"
+
+msgid "Panel Box"
+msgstr "顶栏区域"
+
+msgid "Position Index"
+msgstr "区域内排序索引"
+
+msgid "0 places the clock first; 1 in Center places it next to the system clock"
+msgstr "0 表示排在该区域最前；居中区域设为 1 通常排在系统时钟右侧"
+
+msgid "Matches current system timezone"
+msgstr "当前选择与系统默认时区相同"

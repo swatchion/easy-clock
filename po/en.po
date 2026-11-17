@@ -1,0 +1,132 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: easy-clock 1.0.0\n"
+"POT-Creation-Date: 2026-11-16 00:00+0000\n"
+"PO-Revision-Date: 2026-11-16 00:00+0000\n"
+"Last-Translator: Nick Zeng <nick.zeng@wpic.co>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Easy Clock"
+msgstr "Easy Clock"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Timezone + 24-hour (%Z %H:%M)"
+msgstr "Timezone + 24-hour (%Z %H:%M)"
+
+msgid "24-hour (%H:%M)"
+msgstr "24-hour (%H:%M)"
+
+msgid "24-hour with seconds (%H:%M:%S)"
+msgstr "24-hour with seconds (%H:%M:%S)"
+
+msgid "Month-Day + Time (%m-%d %H:%M)"
+msgstr "Month-Day + Time (%m-%d %H:%M)"
+
+msgid "Weekday + Time (%a %H:%M)"
+msgstr "Weekday + Time (%a %H:%M)"
+
+msgid "12-hour (%I:%M %p)"
+msgstr "12-hour (%I:%M %p)"
+
+msgid "ISO Date & Time (%F %T %Z)"
+msgstr "ISO Date & Time (%F %T %Z)"
+
+msgid "Left"
+msgstr "Left"
+
+msgid "Center"
+msgstr "Center"
+
+msgid "Right"
+msgstr "Right"
+
+msgid "Hour (24-hour 00-23 / 12-hour 01-12)"
+msgstr "Hour (24-hour 00-23 / 12-hour 01-12)"
+
+msgid "Minute (00-59) / Second (00-59)"
+msgstr "Minute (00-59) / Second (00-59)"
+
+msgid "AM / PM indicator"
+msgstr "AM / PM indicator"
+
+msgid "Timezone abbreviation (e.g. UTC) / numeric offset (e.g. +0000)"
+msgstr "Timezone abbreviation (e.g. UTC) / numeric offset (e.g. +0000)"
+
+msgid "Year-Month-Day (e.g. 2026-11-16)"
+msgstr "Year-Month-Day (e.g. 2026-11-16)"
+
+msgid "Abbreviated / full weekday name"
+msgstr "Abbreviated / full weekday name"
+
+msgid "Clock Settings"
+msgstr "Clock Settings"
+
+msgid "Live Preview"
+msgstr "Live Preview"
+
+msgid "System timezone"
+msgstr "System timezone"
+
+msgid "Top Bar Output"
+msgstr "Top Bar Output"
+
+msgid "Timezone"
+msgstr "Timezone"
+
+msgid "Select an IANA timezone or enter an identifier / UTC offset (e.g. UTC, Europe/London, Asia/Tokyo, +08:00)"
+msgstr "Select an IANA timezone or enter an identifier / UTC offset (e.g. UTC, Europe/London, Asia/Tokyo, +08:00)"
+
+msgid "IANA Timezone"
+msgstr "IANA Timezone"
+
+msgid "Open and type to filter timezones"
+msgstr "Open and type to filter timezones"
+
+msgid "Timezone Identifier / Offset"
+msgstr "Timezone Identifier / Offset"
+
+msgid "Display Format (strftime)"
+msgstr "Display Format (strftime)"
+
+msgid "Customize output using GLib.DateTime.format() strftime specifiers"
+msgstr "Customize output using GLib.DateTime.format() strftime specifiers"
+
+msgid "Format Presets"
+msgstr "Format Presets"
+
+msgid "strftime Format String"
+msgstr "strftime Format String"
+
+msgid "Custom Label Prefix (Optional)"
+msgstr "Custom Label Prefix (Optional)"
+
+msgid "Common strftime Specifiers"
+msgstr "Common strftime Specifiers"
+
+msgid "Expand to view format codes"
+msgstr "Expand to view format codes"
+
+msgid "Top Bar Position"
+msgstr "Top Bar Position"
+
+msgid "Choose where the independent clock appears in the top bar"
+msgstr "Choose where the independent clock appears in the top bar"
+
+msgid "Panel Box"
+msgstr "Panel Box"
+
+msgid "Position Index"
+msgstr "Position Index"
+
+msgid "0 places the clock first; 1 in Center places it next to the system clock"
+msgstr "0 places the clock first; 1 in Center places it next to the system clock"
+
+msgid "Matches current system timezone"
+msgstr "Matches current system timezone"

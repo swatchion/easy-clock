@@ -10,6 +10,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Easy Clock"
+msgstr "简易时钟"
+
 msgid "Custom"
 msgstr "自定义"
 

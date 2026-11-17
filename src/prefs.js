@@ -8,16 +8,21 @@ import Gtk from 'gi://Gtk';
 import {ExtensionPreferences} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 import {formatClockText, isValidFormat} from './lib/clockFormatter.js';
+import {createTranslator} from './lib/i18n.js';
+import {
+    getFallbackTimezones,
+    listAvailableTimezonesAsync,
+} from './lib/timezoneCatalog.js';
 import {
     getSystemTimezoneId,
     isValidTimezone,
-    listAvailableTimezones,
 } from './lib/timezones.js';
 
 export default class EasyClockPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
-        const _ = this.gettext.bind(this);
+        const _ = createTranslator(this.gettext.bind(this));
         const settings = this.getSettings();
+        window.set_title(_('Easy Clock'));
         window.set_default_size(620, 680);
 
         const formatPresets = [
@@ -79,7 +84,7 @@ export default class EasyClockPreferences extends ExtensionPreferences {
         });
         page.add(tzGroup);
 
-        const availableZones = listAvailableTimezones();
+        let availableZones = getFallbackTimezones(settings.get_string('timezone'));
         const zoneModel = Gtk.StringList.new(availableZones);
         const tzComboRow = new Adw.ComboRow({
             title: _('IANA Timezone'),
@@ -106,6 +111,21 @@ export default class EasyClockPreferences extends ExtensionPreferences {
         };
 
         syncComboFromTz(settings.get_string('timezone'));
+
+        const tzLoadCancellable = new Gio.Cancellable();
+        listAvailableTimezonesAsync(tzLoadCancellable).then(loadedZones => {
+            if (tzLoadCancellable.is_cancelled())
+                return;
+
+            syncingTimezone = true;
+            availableZones = loadedZones;
+            zoneModel.splice(0, zoneModel.get_n_items(), availableZones);
+            syncComboFromTz(settings.get_string('timezone'));
+            syncingTimezone = false;
+        }).catch(err => {
+            if (!err?.matches?.(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                console.warn(`[easy-clock] Failed loading timezones: ${err.message}`);
+        });
 
         tzComboRow.connect('notify::selected', () => {
             if (syncingTimezone)
@@ -301,6 +321,7 @@ export default class EasyClockPreferences extends ExtensionPreferences {
         GLib.Source.set_name_by_id(previewTimerId, '[easy-clock] prefs-preview');
 
         const cleanupResources = () => {
+            tzLoadCancellable.cancel();
             if (previewTimerId !== 0) {
                 GLib.Source.remove(previewTimerId);
                 previewTimerId = 0;

@@ -8,6 +8,7 @@ A lightweight GNOME Shell extension (45 / 46 / 47) that displays an independent 
 - **Custom `strftime` Format**: Customize output using `GLib.DateTime.format()` specifiers (e.g. `%Z %H:%M`, `%H:%M:%S`, `%m-%d %H:%M`) and an optional prefix.
 - **Configurable Top Bar Placement**: Place the clock in the `left`, `center`, or `right` panel box with adjustable index ordering.
 - **Click to Configure**: Click the clock in the top bar to open Preferences directly.
+- **Bilingual UI (Chinese & English)**: Automatically matches the user's system language (`zh*` / `en*`), defaulting to English when unmatched.
 
 ## Build & Install
 

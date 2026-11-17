@@ -14,6 +14,7 @@ import {
     formatClockText,
     needsSecondPrecision,
 } from './lib/clockFormatter.js';
+import {createTranslator} from './lib/i18n.js';
 
 const VALID_BOXES = new Set(['left', 'center', 'right']);
 
@@ -22,14 +23,13 @@ class EasyClockIndicator extends PanelMenu.Button {
         GObject.registerClass(this);
     }
 
-    constructor(extension, settings) {
-        super(0.5, extension.metadata.name, true);
+    constructor(extension) {
+        const _ = createTranslator(extension.gettext.bind(extension));
+        const indicatorName = _('Easy Clock');
+        super(0.5, indicatorName, true);
 
         this._extension = extension;
-        this._settings = settings;
-        this._timeoutId = 0;
-
-        this.accessible_name = extension.metadata.name;
+        this.accessible_name = indicatorName;
 
         this._label = new St.Label({
             style_class: 'easy-clock-label',
@@ -38,16 +38,16 @@ class EasyClockIndicator extends PanelMenu.Button {
         });
         this.add_child(this._label);
 
-        this.connect('event', (_actor, event) => this._onEvent(event));
-
-        this._settings.connectObject(
-            'changed::timezone', () => this._refresh(),
-            'changed::format', () => this._refresh(),
-            'changed::label-prefix', () => this._refresh(),
+        this.connectObject(
+            'event',
+            (_actor, event) => this._onEvent(event),
             this
         );
+    }
 
-        this._refresh();
+    setText(text) {
+        if (this._label)
+            this._label.text = text;
     }
 
     _onEvent(event) {
@@ -78,81 +78,52 @@ class EasyClockIndicator extends PanelMenu.Button {
 
     _openPrefsSafe() {
         try {
-            this._extension.openPreferences();
+            this._extension?.openPreferences();
         } catch (err) {
             console.error(`[easy-clock] Failed to open preferences: ${err.message}`);
         }
     }
 
-    _clearTimer() {
-        if (this._timeoutId !== 0) {
-            GLib.Source.remove(this._timeoutId);
-            this._timeoutId = 0;
-        }
-    }
-
-    _refresh() {
-        if (!this._settings || !this._label)
-            return;
-
-        const timezone = this._settings.get_string('timezone');
-        const format = this._settings.get_string('format');
-        const labelPrefix = this._settings.get_string('label-prefix');
-
-        this._label.text = formatClockText({
-            timezone,
-            format,
-            labelPrefix,
-        });
-
-        this._scheduleNextTick(format);
-    }
-
-    _scheduleNextTick(format) {
-        this._clearTimer();
-
-        const secondPrecision = needsSecondPrecision(format);
-        const delayMs = computeNextTickMs(GLib.get_real_time(), secondPrecision);
-
-        this._timeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, delayMs, () => {
-            this._timeoutId = 0;
-            this._refresh();
-            return GLib.SOURCE_REMOVE;
-        });
-        GLib.Source.set_name_by_id(this._timeoutId, '[easy-clock] tick');
-    }
-
-    _onDestroy() {
-        this._clearTimer();
-        if (this._settings) {
-            this._settings.disconnectObject(this);
-            this._settings = null;
-        }
+    destroy() {
+        this.disconnectObject(this);
         this._extension = null;
         this._label = null;
 
-        super._onDestroy();
+        super.destroy();
     }
 }
 
 export default class EasyClockExtension extends Extension {
     enable() {
+        this._timeoutId = null;
         this._settings = this.getSettings();
         this._settings.connectObject(
+            'changed::timezone', () => this._refresh(),
+            'changed::format', () => this._refresh(),
+            'changed::label-prefix', () => this._refresh(),
             'changed::panel-position', () => this._rebuildIndicator(),
             'changed::panel-index', () => this._rebuildIndicator(),
             this
         );
 
         this._createIndicator();
+        this._refresh();
     }
 
     disable() {
+        this._clearTimer();
         this._destroyIndicator();
 
         if (this._settings) {
             this._settings.disconnectObject(this);
             this._settings = null;
+        }
+    }
+
+    _clearTimer() {
+        if (this._timeoutId) {
+            GLib.Source.remove(this._timeoutId);
+            this._timeoutId = null;
         }
     }
 
@@ -164,7 +135,7 @@ export default class EasyClockExtension extends Extension {
         const box = VALID_BOXES.has(rawBox) ? rawBox : 'center';
         const index = this._settings.get_int('panel-index');
 
-        this._indicator = new EasyClockIndicator(this, this._settings);
+        this._indicator = new EasyClockIndicator(this);
         Main.panel.addToStatusArea(this.uuid, this._indicator, index, box);
     }
 
@@ -178,5 +149,37 @@ export default class EasyClockExtension extends Extension {
     _rebuildIndicator() {
         this._destroyIndicator();
         this._createIndicator();
+        this._refresh();
+    }
+
+    _refresh() {
+        if (!this._settings || !this._indicator)
+            return;
+
+        const timezone = this._settings.get_string('timezone');
+        const format = this._settings.get_string('format');
+        const labelPrefix = this._settings.get_string('label-prefix');
+
+        this._indicator.setText(formatClockText({
+            timezone,
+            format,
+            labelPrefix,
+        }));
+
+        this._scheduleNextTick(format);
+    }
+
+    _scheduleNextTick(format) {
+        this._clearTimer();
+
+        const secondPrecision = needsSecondPrecision(format);
+        const delayMs = computeNextTickMs(GLib.get_real_time(), secondPrecision);
+
+        this._timeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, delayMs, () => {
+            this._timeoutId = null;
+            this._refresh();
+            return GLib.SOURCE_REMOVE;
+        });
+        GLib.Source.set_name_by_id(this._timeoutId, '[easy-clock] tick');
     }
 }

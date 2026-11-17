@@ -10,5 +10,5 @@
   "url": "https://github.com/swatchion/easy-clock",
   "settings-schema": "org.gnome.shell.extensions.easy-clock",
   "gettext-domain": "easy-clock",
-  "version-name": "1.0.0"
+  "version-name": "1.0.1"
 }
